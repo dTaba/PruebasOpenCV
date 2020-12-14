@@ -8,7 +8,7 @@ def rescaleFrame(frame, scale = 0.7):
 
     return cv.resize(frame, dimensions, interpolation=cv.INTER_AREA)
 
-img = rescaleFrame(cv.imread('./Fotos/OwO.jpg'))
+img = rescaleFrame(cv.imread('./Fotos/ejemplo.jpg'))
 
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
@@ -23,7 +23,13 @@ cv.imshow('LAB', lab)
 rgb = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 cv.imshow('rgb', rgb)
 
-plt.imshow(rgb)
-plt.show()
+hsv_bgr = cv.cvtColor(hsv, cv.COLOR_HSV2BGR)
+cv.imshow('hsv a bgr', hsv_bgr)
+
+lab_bgr = cv.cvtColor(lab, cv.COLOR_LAB2BGR)
+cv.imshow('lab a bgr', lab_bgr)
+
+# plt.imshow(rgb)
+# plt.show()
 
 cv.waitKey(0)
